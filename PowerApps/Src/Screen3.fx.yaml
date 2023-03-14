@@ -114,6 +114,7 @@ Screen3 As screen:
                     );
                     ForAll(
                         varGalleryItem,
+                        If(IsEmpty(tempTableAnswer),
                         Patch(
                             tempTableAnswer,
                             Defaults(tempTableAnswer),
@@ -124,7 +125,8 @@ Screen3 As screen:
                                 IdQuestion: ThisRecord.ID,
                                 UserEmail: User().Email
                             }
-                        )
+                        ),
+                        If(IsEmpty(LookUp(tempTableAnswer, IdQuestion = ThisRecord.ID)) 
                     )
                 Text: =Concatenate("Section ", ThisItem.Section)
                 Width: =105

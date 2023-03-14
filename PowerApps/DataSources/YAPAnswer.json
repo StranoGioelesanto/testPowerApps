@@ -23,6 +23,7 @@
       "{TriggerWindowEndToken}": "Token della conclusione dell'intervallo del trigger",
       "{TriggerWindowStartToken}": "Token dell'avvio dell'intervallo del trigger",
       "{VersionNumber}": "Numero versione",
+      "ActivityDescription": "ActivityDescription",
       "Author": "Autore",
       "Author#Claims": "Autore Claims",
       "CommentsUpdate30_x002e_06": "CommentsUpdate30.06",
