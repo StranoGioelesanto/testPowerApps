@@ -349,7 +349,7 @@ Screen3 As screen:
                 Y: =120
                 ZIndex: =15
 
-            Dropdown1 As dropdown:
+            "'StatusUpdate30.06' As dropdown":
                 BorderColor: =RGBA(116, 116, 116, 1)
                 ChevronBackground: =RGBA(237, 237, 237, 1)
                 ChevronDisabledBackground: =RGBA(237, 237, 237, 1)
@@ -374,7 +374,7 @@ Screen3 As screen:
                 Y: =80
                 ZIndex: =17
 
-            Dropdown1_1 As dropdown:
+            "'StatusUpdate31.12' As dropdown":
                 BorderColor: =RGBA(116, 116, 116, 1)
                 ChevronBackground: =RGBA(237, 237, 237, 1)
                 ChevronDisabledBackground: =RGBA(237, 237, 237, 1)
