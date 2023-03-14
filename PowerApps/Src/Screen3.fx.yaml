@@ -29,7 +29,8 @@ Screen3 As screen:
             =Set(Evaluation, false);
             Set(Laf, true);
             Set(HeadOfAf, false);
-            ClearCollect(tempTable, Question)
+            Collect(tempTableAnswer, YAPAnswer);
+            Clear(tempTableAnswer)
         Text: ="LAF"
         Width: =45
         X: =176
@@ -107,6 +108,7 @@ Screen3 As screen:
                 HoverFill: =ColorFade(Self.Fill, -20%)
                 OnSelect: |
                     =Select(Parent);
+                    ForAll(Gallery3.AllItems, Patch(tempTableAnswer, { IncludedLAF: If(
                 Text: =Concatenate("Section ", ThisItem.Section)
                 Width: =105
                 Y: =4
@@ -220,7 +222,7 @@ Screen3 As screen:
                 Y: =30
                 ZIndex: =7
 
-            TextInput1 As text:
+            ActivityDescription As text:
                 BorderColor: =RGBA(149, 149, 149, 1)
                 Default: =ThisItem.ActivityDescription
                 Fill: =RGBA(237, 237, 237, 1)
@@ -235,7 +237,7 @@ Screen3 As screen:
                 Y: =120
                 ZIndex: =8
 
-            Checkbox1 As checkbox:
+            YesIncludedInLAF As checkbox:
                 CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                 CheckmarkFill: =RGBA(168, 0, 0, 1)
                 Default: |+
@@ -251,7 +253,7 @@ Screen3 As screen:
                 Y: =125
                 ZIndex: =9
 
-            Checkbox1_1 As checkbox:
+            NoIncludedInLAF As checkbox:
                 CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                 CheckmarkFill: =RGBA(168, 0, 0, 1)
                 Default: =If(ThisItem.'Included in LAF' = false, true, false)
@@ -263,7 +265,7 @@ Screen3 As screen:
                 Y: =200
                 ZIndex: =10
 
-            Checkbox1_2 As checkbox:
+            YesNewActivity As checkbox:
                 BorderColor: =RGBA(149, 149, 149, 1)
                 CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                 CheckmarkFill: =RGBA(168, 0, 0, 1)
@@ -283,7 +285,7 @@ Screen3 As screen:
                 Y: =125
                 ZIndex: =11
 
-            Checkbox1_3 As checkbox:
+            NoNewActivity As checkbox:
                 CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                 CheckmarkFill: =RGBA(168, 0, 0, 1)
                 Default: |
@@ -301,7 +303,7 @@ Screen3 As screen:
                 Y: =200
                 ZIndex: =12
 
-            TextInput1_1 As text:
+            InitialComments As text:
                 BorderColor: =RGBA(149, 149, 149, 1)
                 Default: =ThisItem.'Initial comments'
                 Fill: =RGBA(237, 237, 237, 1)
@@ -316,7 +318,7 @@ Screen3 As screen:
                 Y: =120
                 ZIndex: =13
 
-            TextInput1_2 As text:
+            "'Update30.06' As text":
                 BorderColor: =RGBA(149, 149, 149, 1)
                 Default: =
                 Fill: =RGBA(237, 237, 237, 1)
@@ -331,7 +333,7 @@ Screen3 As screen:
                 Y: =120
                 ZIndex: =14
 
-            TextInput1_3 As text:
+            "'Update31.12' As text":
                 BorderColor: =RGBA(149, 149, 149, 1)
                 Default: ="jhjhjh"
                 DisplayMode: =If(Now()>Date(Year(Now()), 6, 30), DisplayMode.Edit, DisplayMode.Disabled)
