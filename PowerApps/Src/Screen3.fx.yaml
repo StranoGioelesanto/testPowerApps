@@ -261,6 +261,7 @@ Screen3 As screen:
                     
                 OnCheck: |-
                     =Patch(
+                        tempTableAnswer,
                         LookUp(
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
@@ -282,6 +283,7 @@ Screen3 As screen:
                 Default: =If(ThisItem.'Included in LAF' = false, true, false)
                 OnCheck: |-
                     =Patch(
+                        tempTableAnswer,
                         LookUp(
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
@@ -303,8 +305,9 @@ Screen3 As screen:
                 Default: |
                     =//If(ThisItem.'New activity' = true; If(varRecord.'New activity' = true; true); true)
                     If(ThisItem.'New activity' = true, true, false)
-                OnCheck: |
+                OnCheck: |-
                     =Patch(
+                        tempTableAnswer,
                         LookUp(
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
@@ -330,6 +333,7 @@ Screen3 As screen:
                     If(ThisItem.'New activity' = false, true, false)
                 OnCheck: |-
                     =Patch(
+                        tempTableAnswer,
                         LookUp(
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
@@ -352,6 +356,7 @@ Screen3 As screen:
                 Height: =130
                 OnChange: |-
                     =Patch(
+                        tempTableAnswer,
                         LookUp(
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
@@ -375,6 +380,7 @@ Screen3 As screen:
                 Height: =130
                 OnChange: |-
                     =Patch(
+                        tempTableAnswer,
                         LookUp(
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
@@ -399,6 +405,7 @@ Screen3 As screen:
                 Height: =130
                 OnChange: |-
                     =Patch(
+                        tempTableAnswer,
                         LookUp(
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
