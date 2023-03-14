@@ -1,0 +1,40 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =If(
+            !IsBlank(
+                LookUp(
+                    UserPermission,
+                    Titolo = User().Email,
+                    Permission.Value = "Admin"
+                )
+            ),
+            Set(
+                isAdmin,
+                true
+            ),
+            Set(
+                isAdmin,
+                false
+            )
+        );
+        
+        If(
+            !IsBlank(
+                LookUp(
+                    UserPermission,
+                    Titolo = User().Email,
+                    Permission.Value = "Group Actuarial Function"
+                )
+            ),
+            Set(
+                isGaf,
+                true
+            ),
+            Set(
+                isGaf,
+                false
+            )
+        )
+    StartScreen: =
+

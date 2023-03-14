@@ -1,0 +1,15 @@
+Screen1 As screen:
+
+    Button1 As button:
+        Text: ="Admin"
+        Visible: =isAdmin
+        X: =1131
+        Y: =669
+        ZIndex: =1
+
+    Button3 As button:
+        Text: ="TEST"
+        X: =40
+        Y: =40
+        ZIndex: =2
+

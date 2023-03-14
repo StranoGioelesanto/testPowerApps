@@ -1,0 +1,11 @@
+Screen2 As screen:
+
+    Button2 As button:
+        Fill: =RGBA(168, 0, 0, 1)
+        OnSelect: =Navigate(Screen3)
+        Text: ="LAF Yearly Activity Plan"
+        Width: =260
+        X: =1062
+        Y: =606
+        ZIndex: =1
+

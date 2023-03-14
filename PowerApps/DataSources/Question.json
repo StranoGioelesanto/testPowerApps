@@ -1,0 +1,51 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-03-08T00:31:17.0790000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Allegati",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "Nome file con estensione",
+      "{FullPath}": "Percorso completo",
+      "{HasAttachments}": "Con allegati",
+      "{Identifier}": "Identificatore",
+      "{IsFolder}": "Cartella",
+      "{Link}": "Collegamento a elemento",
+      "{ModerationComment}": "Commenti associati all'approvazione del contenuto della voce di elenco",
+      "{ModerationStatus}": "Stato di approvazione del contenuto",
+      "{Name}": "Nome",
+      "{Path}": "Percorso cartella",
+      "{Thumbnail}": "Miniatura",
+      "{TriggerWindowEndToken}": "Token della conclusione dell'intervallo del trigger",
+      "{TriggerWindowStartToken}": "Token dell'avvio dell'intervallo del trigger",
+      "{VersionNumber}": "Numero versione",
+      "ActivityDescription": "ActivityDescription",
+      "Author": "Autore",
+      "Author#Claims": "Autore Claims",
+      "ComplianceAssetId": "ID risorsa conformità",
+      "Created": "Data/ora creazione",
+      "Editor": "Modificato da",
+      "Editor#Claims": "Modificato da Claims",
+      "ID": "ID",
+      "IncludedinLAF": "Included in LAF",
+      "Initialcomments": "Initial comments",
+      "Modified": "Data/ora modifica",
+      "Newactivity": "New activity",
+      "Section": "Section",
+      "Section#Id": "Section Id",
+      "Title": "Titolo",
+      "TypeYap": "TypeYap",
+      "TypeYap#Id": "TypeYap Id"
+    },
+    "DatasetName": "https://lipariconsulting.sharepoint.com/sites/test2",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Question",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

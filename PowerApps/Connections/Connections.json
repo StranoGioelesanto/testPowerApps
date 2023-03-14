@@ -1,0 +1,42 @@
+{
+  "5d761bc9-c52f-4697-932a-e34b450a77d1": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/releases/ase-v3/1.0.1622.3202/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://lipariconsulting.sharepoint.com/sites/test2": {
+        "dataSources": {
+          "Question": {
+            "tableName": "3b3c99c6-cf26-4eb2-b89d-60e1028f9ba8"
+          },
+          "SectionYAP": {
+            "tableName": "6df45200-5384-4800-b628-11f5442c7754"
+          },
+          "UserPermission": {
+            "tableName": "b7dc862f-a2e4-4758-bb75-f6f38633ee75"
+          },
+          "YAPAnswer": {
+            "tableName": "071502b2-0ad5-4ca9-9ac0-d11bd86708e6"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "UserPermission",
+      "SectionYAP",
+      "Question",
+      "YAPAnswer"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "5d761bc9-c52f-4697-932a-e34b450a77d1"
+  }
+}

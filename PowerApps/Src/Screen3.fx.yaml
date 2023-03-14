@@ -1,0 +1,436 @@
+Screen3 As screen:
+    Fill: =RGBA(255, 255, 255, 1)
+
+    Icon1 As icon.Person:
+        Color: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.Person
+        Width: =34
+        X: =1135
+        Y: =25
+        ZIndex: =1
+
+    Label1 As label:
+        Color: =RGBA(116, 116, 116, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =43
+        Text: =User().FullName
+        Width: =197
+        X: =1169
+        Y: =18
+        ZIndex: =2
+
+    Label2 As label:
+        Color: =RGBA(116, 116, 116, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =37
+        OnSelect: |
+            =Set(Evaluation, false);
+            Set(Laf, true);
+            Set(HeadOfAf, false);
+            ClearCollect(tempTable, Question)
+        Text: ="LAF"
+        Width: =45
+        X: =176
+        Y: =20
+        ZIndex: =3
+
+    Label2_1 As label:
+        Color: =RGBA(116, 116, 116, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        OnSelect: |-
+            =Set(Evaluation, false);
+            Set(Laf, false);
+            Set(HeadOfAf, true)
+        Text: ="Head of AF "
+        Width: =114
+        X: =249
+        Y: =20
+        ZIndex: =4
+
+    Label2_2 As label:
+        Color: =RGBA(116, 116, 116, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =35
+        OnSelect: |-
+            =Set(Evaluation, true);
+            Set(Laf, false);
+            Set(HeadOfAf, false)
+        Text: ="Evaluation Form"
+        Width: =155
+        X: =392
+        Y: =20
+        ZIndex: =5
+
+    Container1 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(219, 219, 219, 1)
+        Height: =704
+        Visible: =Laf
+        Width: =1366
+        Y: =64
+        ZIndex: =6
+
+        Label3 As label:
+            Text: ="Laf"
+            X: =1035
+            Y: =555
+            ZIndex: =1
+
+        Label6 As label:
+            FontWeight: =FontWeight.Bold
+            Size: =23
+            Text: ="2023 LAF Yearly Activity Plan"
+            Width: =513
+            X: =22
+            Y: =3
+            ZIndex: =2
+
+        Gallery5 As gallery.galleryHorizontal:
+            DelayItemLoading: =true
+            Height: =45
+            Items: =Filter(SectionYAP, ThisRecord.TypeYAP.Value = "LAF")
+            LoadingSpinner: =LoadingSpinner.Data
+            ShowScrollbar: =false
+            TemplateSize: =138
+            Width: =851
+            X: =22
+            Y: =48
+            ZIndex: =3
+
+            Button6 As button:
+                Color: =If(ThisItem.IsSelected, RGBA(255, 255, 255, 1), RGBA(168, 0, 0, 1))
+                DisplayMode: =
+                Fill: =If(ThisItem.IsSelected, RGBA(168, 0, 0, 1), RGBA(0, 0, 0, 0))
+                Height: =27
+                HoverFill: =ColorFade(Self.Fill, -20%)
+                OnSelect: |
+                    =Select(Parent);
+                Text: =Concatenate("Section ", ThisItem.Section)
+                Width: =105
+                Y: =4
+                ZIndex: =1
+
+        Label8 As label:
+            Color: =RGBA(168, 0, 0, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =26
+            Text: =Gallery5.Selected.Description
+            Width: =835
+            X: =22
+            Y: =99
+            ZIndex: =4
+
+        Gallery3 As gallery.galleryVertical:
+            Fill: =RGBA(219, 219, 219, 1)
+            Height: =574
+            Items: |-
+                =Filter(Question, Section.Value = Text(Gallery5.Selected.Section) && TypeYap.Value = Gallery5.Selected.TypeYAP.Value)
+                //AddColumns(
+                //    ShowColumns(Filter(Question; IdSectionYAP.Value = Text(Gallery5.Selected.ID));
+                //        "ID"; "IdSectionYAP"; "ActivityDescription"; "IncludedinLAF"; "Initialcomments"; "Newactivity"
+                //    );
+                //    "ValueCheckBoxIncluded"; true;
+                //    "ValueCheckBoxNewActivity"; true
+                //)
+            Layout: =Layout.Vertical
+            OnSelect: =
+            TemplateSize: =266
+            Width: =1366
+            Y: =130
+            ZIndex: =5
+
+            Button5 As button:
+                DisabledBorderColor: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(255, 255, 255, 1)
+                DisabledFill: =RGBA(255, 255, 255, 1)
+                DisplayMode: =DisplayMode.Disabled
+                Fill: =RGBA(255, 255, 255, 1)
+                Height: =238
+                HoverBorderColor: =ColorFade(Self.BorderColor, 1%)
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Text: =""
+                Width: =1314
+                X: =29
+                Y: =26
+                ZIndex: =1
+
+            Label7 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =30
+                OnSelect: =Select(Parent)
+                Text: ="Activity Description"
+                Width: =178
+                X: =45
+                Y: =43
+                ZIndex: =2
+
+            Label9 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =56
+                OnSelect: =Select(Parent)
+                Text: ="Included in LAF yearly activity plan"
+                Width: =196
+                X: =284
+                Y: =30
+                ZIndex: =3
+
+            Label9_1 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =56
+                OnSelect: =Select(Parent)
+                Text: ="New activity"
+                Width: =121
+                X: =541
+                Y: =30
+                ZIndex: =4
+
+            Label9_2 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =56
+                OnSelect: =Select(Parent)
+                Text: ="Initial Comments"
+                Width: =161
+                X: =723
+                Y: =30
+                ZIndex: =5
+
+            Label9_3 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =56
+                OnSelect: =Select(Parent)
+                Text: ="Update at 30.06"
+                Width: =154
+                X: =945
+                Y: =30
+                ZIndex: =6
+
+            Label9_4 As label:
+                FontWeight: =FontWeight.Semibold
+                Height: =56
+                OnSelect: =Select(Parent)
+                Text: ="Update at 31.12"
+                Width: =154
+                X: =1160
+                Y: =30
+                ZIndex: =7
+
+            TextInput1 As text:
+                BorderColor: =RGBA(149, 149, 149, 1)
+                Default: =ThisItem.ActivityDescription
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =130
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =178
+                X: =45
+                Y: =120
+                ZIndex: =8
+
+            Checkbox1 As checkbox:
+                CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                CheckmarkFill: =RGBA(168, 0, 0, 1)
+                Default: |+
+                    =If(ThisItem.'Included in LAF' = true, true, false)
+                    
+                OnCheck: =true
+                OnSelect: |
+                    =//If(checkIncludedLaf = true; Set(checkIncludedLaf; false); Set(checkIncludedLaf; true))
+                Text: ="Yes"
+                Tooltip: =
+                Width: =95
+                X: =284
+                Y: =125
+                ZIndex: =9
+
+            Checkbox1_1 As checkbox:
+                CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                CheckmarkFill: =RGBA(168, 0, 0, 1)
+                Default: =If(ThisItem.'Included in LAF' = false, true, false)
+                OnSelect: |
+                    =If(checkIncludedLaf = true, Set(checkIncludedLaf, false), Set(checkIncludedLaf, true))
+                Text: ="No"
+                Width: =95
+                X: =284
+                Y: =200
+                ZIndex: =10
+
+            Checkbox1_2 As checkbox:
+                BorderColor: =RGBA(149, 149, 149, 1)
+                CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                CheckmarkFill: =RGBA(168, 0, 0, 1)
+                Default: |
+                    =//If(ThisItem.'New activity' = true; If(varRecord.'New activity' = true; true); true)
+                    If(ThisItem.'New activity' = true, true, false)
+                OnCheck: |+
+                    =//Set(ThisItem; Patch(ThisItem; {ValueCheckBoxNewActivity:true}))
+                    
+                OnSelect: =//If(checkNewActivity = true; Set(checkNewActivity; false); Set(checkNewActivity; true))
+                OnUncheck: |
+                    =//Patch(Gallery3.AllItems; LookUp(Gallery3.AllItems; ID = ID) ; {ValueCheckBoxNewActivity: false})
+                Text: ="Yes"
+                Tooltip: =
+                Width: =91
+                X: =541
+                Y: =125
+                ZIndex: =11
+
+            Checkbox1_3 As checkbox:
+                CheckboxBorderColor: =RGBA(116, 116, 116, 1)
+                CheckmarkFill: =RGBA(168, 0, 0, 1)
+                Default: |
+                    =//If(ThisItem.'New activity' = false; If(varRecord.'New activity' = false; true); false)
+                    //If(ThisItem.Newactivity = false; If(ThisItem.ValueCheckBoxNewActivity = false; true); false)
+                    If(ThisItem.'New activity' = false, true, false)
+                OnCheck: |
+                    =//Set(ThisItem; Patch(ThisItem; {ValueCheckBoxNewActivity:false}))
+                OnSelect: =//If(checkNewActivity = true; Set(checkNewActivity; false); Set(checkNewActivity; true))
+                OnUncheck: |
+                    =//Set(ThisItem; Patch(ThisItem; {ValueCheckBoxNewActivity:true}))
+                Text: ="No"
+                Width: =91
+                X: =541
+                Y: =200
+                ZIndex: =12
+
+            TextInput1_1 As text:
+                BorderColor: =RGBA(149, 149, 149, 1)
+                Default: =ThisItem.'Initial comments'
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =130
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =178
+                X: =723
+                Y: =120
+                ZIndex: =13
+
+            TextInput1_2 As text:
+                BorderColor: =RGBA(149, 149, 149, 1)
+                Default: =
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =130
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =178
+                X: =945
+                Y: =120
+                ZIndex: =14
+
+            TextInput1_3 As text:
+                BorderColor: =RGBA(149, 149, 149, 1)
+                Default: ="jhjhjh"
+                DisplayMode: =If(Now()>Date(Year(Now()), 6, 30), DisplayMode.Edit, DisplayMode.Disabled)
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =130
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =20
+                RadiusBottomRight: =20
+                RadiusTopLeft: =20
+                RadiusTopRight: =20
+                Width: =178
+                X: =1160
+                Y: =120
+                ZIndex: =15
+
+            Dropdown1 As dropdown:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                ChevronBackground: =RGBA(237, 237, 237, 1)
+                ChevronDisabledBackground: =RGBA(237, 237, 237, 1)
+                ChevronDisabledFill: =RGBA(237, 237, 237, 1)
+                ChevronFill: =RGBA(168, 0, 0, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(237, 237, 237, 1), -20%)
+                ChevronHoverFill: =RGBA(237, 237, 237, 1)
+                Color: =RGBA(116, 116, 116, 1)
+                DisabledBorderColor: =RGBA(237, 237, 237, 1)
+                DisabledColor: =RGBA(116, 116, 116, 1)
+                DisabledFill: =RGBA(237, 237, 237, 1)
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =30
+                HoverColor: =RGBA(237, 237, 237, 1)
+                HoverFill: =RGBA(237, 237, 237, 1)
+                Items: =["In progress", "Completed", "Not started", "Delayed", "Over due"]
+                PressedColor: =RGBA(237, 237, 237, 1)
+                PressedFill: =RGBA(237, 237, 237, 1)
+                SelectionFill: =RGBA(237, 237, 237, 1)
+                Width: =170
+                X: =945
+                Y: =80
+                ZIndex: =17
+
+            Dropdown1_1 As dropdown:
+                BorderColor: =RGBA(116, 116, 116, 1)
+                ChevronBackground: =RGBA(237, 237, 237, 1)
+                ChevronDisabledBackground: =RGBA(237, 237, 237, 1)
+                ChevronDisabledFill: =RGBA(237, 237, 237, 1)
+                ChevronFill: =RGBA(168, 0, 0, 1)
+                ChevronHoverBackground: =ColorFade(RGBA(237, 237, 237, 1), -20%)
+                ChevronHoverFill: =RGBA(237, 237, 237, 1)
+                Color: =RGBA(116, 116, 116, 1)
+                DisabledBorderColor: =RGBA(237, 237, 237, 1)
+                DisabledColor: =RGBA(116, 116, 116, 1)
+                DisabledFill: =RGBA(237, 237, 237, 1)
+                DisplayMode: =If(Now()>Date(Year(Now()), 6, 30), DisplayMode.Edit, DisplayMode.Disabled)
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =30
+                HoverColor: =RGBA(237, 237, 237, 1)
+                HoverFill: =RGBA(237, 237, 237, 1)
+                Items: =["In progress", "Completed", "Not started", "Delayed", "Over due"]
+                PressedColor: =RGBA(237, 237, 237, 1)
+                PressedFill: =RGBA(237, 237, 237, 1)
+                SelectionFill: =RGBA(237, 237, 237, 1)
+                Width: =170
+                X: =1160
+                Y: =80
+                ZIndex: =18
+
+        Rectangle3 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Fill: =RGBA(102, 102, 102, 1)
+            Height: =1
+            Width: =1320
+            X: =22
+            Y: =130
+            ZIndex: =6
+
+    Container2 As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(219, 219, 219, 1)
+        Height: =704
+        Visible: =HeadOfAf
+        Width: =1366
+        Y: =64
+        ZIndex: =7
+
+        Label4 As label:
+            Text: ="Head of AF"
+            X: =159
+            Y: =39
+            ZIndex: =1
+
+    Container3 As groupContainer.manualLayoutContainer:
+        Height: =704
+        Visible: =Evaluation
+        Width: =1366
+        Y: =64
+        ZIndex: =8
+
+        Label5 As label:
+            Text: ="Evaluation Form"
+            X: =501
+            Y: =36
+            ZIndex: =1
+
