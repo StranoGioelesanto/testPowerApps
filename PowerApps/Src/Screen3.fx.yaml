@@ -106,9 +106,24 @@ Screen3 As screen:
                 Fill: =If(ThisItem.IsSelected, RGBA(168, 0, 0, 1), RGBA(0, 0, 0, 0))
                 Height: =27
                 HoverFill: =ColorFade(Self.Fill, -20%)
-                OnSelect: |
+                OnSelect: |-
                     =Select(Parent);
-                    ForAll(Gallery3.AllItems, Patch(tempTableAnswer, { IncludedLAF: If(
+                    ClearCollect(
+                        varGalleryItem,
+                        Gallery3.AllItems
+                    );
+                    ForAll(
+                        varGalleryItem,
+                        Patch(
+                            tempTableAnswer,
+                            {
+                                IncludedLAF: ThisRecord.'Included in LAF',
+                                NewActivity: ThisRecord.'New activity',
+                                InitialComments: ThisRecord.InitialComments,
+                                IdQuestion: ThisRecord.ID
+                            }
+                        )
+                    )
                 Text: =Concatenate("Section ", ThisItem.Section)
                 Width: =105
                 Y: =4
@@ -243,7 +258,14 @@ Screen3 As screen:
                 Default: |+
                     =If(ThisItem.'Included in LAF' = true, true, false)
                     
-                OnCheck: =true
+                OnCheck: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {IncludedLAF: true}
+                    )
                 OnSelect: |
                     =//If(checkIncludedLaf = true; Set(checkIncludedLaf; false); Set(checkIncludedLaf; true))
                 Text: ="Yes"
@@ -257,6 +279,14 @@ Screen3 As screen:
                 CheckboxBorderColor: =RGBA(116, 116, 116, 1)
                 CheckmarkFill: =RGBA(168, 0, 0, 1)
                 Default: =If(ThisItem.'Included in LAF' = false, true, false)
+                OnCheck: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {IncludedLAF: false}
+                    )
                 OnSelect: |
                     =If(checkIncludedLaf = true, Set(checkIncludedLaf, false), Set(checkIncludedLaf, true))
                 Text: ="No"
@@ -272,9 +302,14 @@ Screen3 As screen:
                 Default: |
                     =//If(ThisItem.'New activity' = true; If(varRecord.'New activity' = true; true); true)
                     If(ThisItem.'New activity' = true, true, false)
-                OnCheck: |+
-                    =//Set(ThisItem; Patch(ThisItem; {ValueCheckBoxNewActivity:true}))
-                    
+                OnCheck: |
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {NewActivity: true}
+                    )
                 OnSelect: =//If(checkNewActivity = true; Set(checkNewActivity; false); Set(checkNewActivity; true))
                 OnUncheck: |
                     =//Patch(Gallery3.AllItems; LookUp(Gallery3.AllItems; ID = ID) ; {ValueCheckBoxNewActivity: false})
@@ -292,8 +327,14 @@ Screen3 As screen:
                     =//If(ThisItem.'New activity' = false; If(varRecord.'New activity' = false; true); false)
                     //If(ThisItem.Newactivity = false; If(ThisItem.ValueCheckBoxNewActivity = false; true); false)
                     If(ThisItem.'New activity' = false, true, false)
-                OnCheck: |
-                    =//Set(ThisItem; Patch(ThisItem; {ValueCheckBoxNewActivity:false}))
+                OnCheck: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {NewActivity: false}
+                    )
                 OnSelect: =//If(checkNewActivity = true; Set(checkNewActivity; false); Set(checkNewActivity; true))
                 OnUncheck: |
                     =//Set(ThisItem; Patch(ThisItem; {ValueCheckBoxNewActivity:true}))
@@ -308,6 +349,14 @@ Screen3 As screen:
                 Default: =ThisItem.'Initial comments'
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =130
+                OnChange: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {InitialComments: InitialComments.Text}
+                    )
                 OnSelect: =Select(Parent)
                 RadiusBottomLeft: =20
                 RadiusBottomRight: =20
@@ -323,6 +372,14 @@ Screen3 As screen:
                 Default: =
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =130
+                OnChange: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {'CommentsUpdate30.06': 'Update30.06'.Text}
+                    )
                 OnSelect: =Select(Parent)
                 RadiusBottomLeft: =20
                 RadiusBottomRight: =20
@@ -339,6 +396,14 @@ Screen3 As screen:
                 DisplayMode: =If(Now()>Date(Year(Now()), 6, 30), DisplayMode.Edit, DisplayMode.Disabled)
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =130
+                OnChange: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {'CommentsUpdate31.12': 'Update31.12'.Text}
+                    )
                 OnSelect: =Select(Parent)
                 RadiusBottomLeft: =20
                 RadiusBottomRight: =20
@@ -366,6 +431,14 @@ Screen3 As screen:
                 HoverColor: =RGBA(237, 237, 237, 1)
                 HoverFill: =RGBA(237, 237, 237, 1)
                 Items: =["In progress", "Completed", "Not started", "Delayed", "Over due"]
+                OnChange: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {'Update30.06': 'StatusUpdate30.06'.SelectedText}
+                    )
                 PressedColor: =RGBA(237, 237, 237, 1)
                 PressedFill: =RGBA(237, 237, 237, 1)
                 SelectionFill: =RGBA(237, 237, 237, 1)
@@ -392,6 +465,14 @@ Screen3 As screen:
                 HoverColor: =RGBA(237, 237, 237, 1)
                 HoverFill: =RGBA(237, 237, 237, 1)
                 Items: =["In progress", "Completed", "Not started", "Delayed", "Over due"]
+                OnChange: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {'Update31.12': 'StatusUpdate31.12'.SelectedText}
+                    )
                 PressedColor: =RGBA(237, 237, 237, 1)
                 PressedFill: =RGBA(237, 237, 237, 1)
                 SelectionFill: =RGBA(237, 237, 237, 1)
