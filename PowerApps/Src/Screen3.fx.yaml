@@ -121,7 +121,8 @@ Screen3 As screen:
                                 IncludedLAF: ThisRecord.'Included in LAF',
                                 NewActivity: ThisRecord.'New activity',
                                 InitialComments: ThisRecord.InitialComments,
-                                IdQuestion: ThisRecord.ID
+                                IdQuestion: ThisRecord.ID,
+                                UserEmail: User().Email
                             }
                         )
                     )
