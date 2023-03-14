@@ -116,6 +116,7 @@ Screen3 As screen:
                         varGalleryItem,
                         Patch(
                             tempTableAnswer,
+                            Defaults(tempTableAnswer),
                             {
                                 IncludedLAF: ThisRecord.'Included in LAF',
                                 NewActivity: ThisRecord.'New activity',
