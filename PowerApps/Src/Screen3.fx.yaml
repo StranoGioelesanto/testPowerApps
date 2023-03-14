@@ -126,7 +126,27 @@ Screen3 As screen:
                                 UserEmail: User().Email
                             }
                         ),
-                        If(IsEmpty(LookUp(tempTableAnswer, IdQuestion = ThisRecord.ID)) 
+                        If(IsEmpty(LookUp(tempTableAnswer, IdQuestion = ThisRecord.ID)), 
+                        Patch(
+                            tempTableAnswer,
+                            Defaults(tempTableAnswer),
+                            {
+                                IncludedLAF: ThisRecord.'Included in LAF',
+                                NewActivity: ThisRecord.'New activity',
+                                InitialComments: ThisRecord.InitialComments,
+                                IdQuestion: ThisRecord.ID,
+                                UserEmail: User().Email
+                            }
+                        ),
+                        Update(tempTableAnswer, First(Filter(tempTableAnswer, IdQuestion = ThisRecord.ID)),
+                        {
+                                IncludedLAF: ThisRecord.'Included in LAF',
+                                NewActivity: ThisRecord.'New activity',
+                                InitialComments: ThisRecord.InitialComments,
+                                IdQuestion: ThisRecord.ID,
+                                UserEmail: User().Email
+                            }
+                    
                     )
                 Text: =Concatenate("Section ", ThisItem.Section)
                 Width: =105
