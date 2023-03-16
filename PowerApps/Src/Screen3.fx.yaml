@@ -143,57 +143,7 @@ Screen3 As screen:
             Height: =45
             Items: =Filter(SectionYAP, ThisRecord.TypeYAP.Value = "LAF")
             LoadingSpinner: =LoadingSpinner.Data
-            OnSelect: |-
-                =ForAll(
-                    varGalleryItem,
-                    If(
-                        IsEmpty(tempTableAnswer),
-                        Patch(
-                            tempTableAnswer,
-                            Defaults(tempTableAnswer),
-                            {
-                                IncludedLAF: varGalleryItem[@'Included in LAF'],
-                                NewActivity: varGalleryItem[@'New activity'],
-                                InitialComments: varGalleryItem[@InitialComments],
-                                IdQuestion: varGalleryItem[@ID],
-                                UserEmail: User().Email
-                            }
-                        ),
-                        If(
-                            IsBlank(
-                                LookUp(
-                                    tempTableAnswer,
-                                    IdQuestion = varGalleryItem[@ID]
-                                )
-                            ),
-                            Patch(
-                                tempTableAnswer,
-                                Defaults(tempTableAnswer),
-                                {
-                                    IncludedLAF: varGalleryItem[@'Included in LAF'],
-                                    NewActivity: varGalleryItem[@'New activity'],
-                                    InitialComments: varGalleryItem[@InitialComments],
-                                    IdQuestion: varGalleryItem[@ID],
-                                    UserEmail: User().Email
-                                }
-                            ),
-                            Patch(
-                                tempTableAnswer,
-                                LookUp(
-                                    tempTableAnswer,
-                                    IdQuestion = varGalleryItem[@ID]
-                                ),
-                                {
-                                    IncludedLAF: varGalleryItem[@'Included in LAF'],
-                                    NewActivity: varGalleryItem[@'New activity'],
-                                    InitialComments: varGalleryItem[@InitialComments],
-                                    IdQuestion: varGalleryItem[@ID],
-                                    UserEmail: User().Email
-                                }
-                            )
-                        )
-                    )
-                )
+            OnSelect: =
             ShowScrollbar: =false
             TemplateSize: =138
             Width: =851
@@ -223,7 +173,7 @@ Screen3 As screen:
                                 {
                                     IncludedLAF: varGalleryItem[@'Included in LAF'],
                                     NewActivity: varGalleryItem[@'New activity'],
-                                    InitialComments: varGalleryItem[@InitialComments],
+                                    InitialComments: varGalleryItem[@InitialComments].Text,
                                     IdQuestion: varGalleryItem[@ID],
                                     UserEmail: User().Email
                                 }
@@ -241,7 +191,7 @@ Screen3 As screen:
                                     {
                                         IncludedLAF: varGalleryItem[@'Included in LAF'],
                                         NewActivity: varGalleryItem[@'New activity'],
-                                        InitialComments: varGalleryItem[@InitialComments],
+                                        InitialComments: varGalleryItem[@InitialComments].Text,
                                         IdQuestion: varGalleryItem[@ID],
                                         UserEmail: User().Email
                                     }
@@ -255,7 +205,7 @@ Screen3 As screen:
                                     {
                                         IncludedLAF: varGalleryItem[@'Included in LAF'],
                                         NewActivity: varGalleryItem[@'New activity'],
-                                        InitialComments: varGalleryItem[@InitialComments],
+                                        InitialComments: varGalleryItem[@InitialComments].Text,
                                         IdQuestion: varGalleryItem[@ID],
                                         UserEmail: User().Email
                                     }
@@ -291,57 +241,7 @@ Screen3 As screen:
                 //    "ValueCheckBoxNewActivity"; true
                 //)
             Layout: =Layout.Vertical
-            OnSelect: |-
-                =ForAll(
-                    varGalleryItem,
-                    If(
-                        IsEmpty(tempTableAnswer),
-                        Patch(
-                            tempTableAnswer,
-                            Defaults(tempTableAnswer),
-                            {
-                                IncludedLAF: varGalleryItem[@'Included in LAF'],
-                                NewActivity: varGalleryItem[@'New activity'],
-                                InitialComments: varGalleryItem[@InitialComments],
-                                IdQuestion: varGalleryItem[@ID],
-                                UserEmail: User().Email
-                            }
-                        ),
-                        If(
-                            IsBlank(
-                                LookUp(
-                                    tempTableAnswer,
-                                    IdQuestion = varGalleryItem[@ID]
-                                )
-                            ),
-                            Patch(
-                                tempTableAnswer,
-                                Defaults(tempTableAnswer),
-                                {
-                                    IncludedLAF: varGalleryItem[@'Included in LAF'],
-                                    NewActivity: varGalleryItem[@'New activity'],
-                                    InitialComments: varGalleryItem[@InitialComments],
-                                    IdQuestion: varGalleryItem[@ID],
-                                    UserEmail: User().Email
-                                }
-                            ),
-                            Patch(
-                                tempTableAnswer,
-                                LookUp(
-                                    tempTableAnswer,
-                                    IdQuestion = varGalleryItem[@ID]
-                                ),
-                                {
-                                    IncludedLAF: varGalleryItem[@'Included in LAF'],
-                                    NewActivity: varGalleryItem[@'New activity'],
-                                    InitialComments: varGalleryItem[@InitialComments],
-                                    IdQuestion: varGalleryItem[@ID],
-                                    UserEmail: User().Email
-                                }
-                            )
-                        )
-                    )
-                )
+            OnSelect: =
             TemplateSize: =266
             Width: =1366
             Y: =130
