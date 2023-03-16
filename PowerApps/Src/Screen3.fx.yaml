@@ -447,6 +447,7 @@ Screen3 As screen:
                 Default: =ThisItem.'Initial comments'
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =130
+                Mode: =TextMode.MultiLine
                 OnChange: |-
                     =Patch(
                         tempTableAnswer,
