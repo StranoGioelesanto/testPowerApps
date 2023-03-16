@@ -25,12 +25,16 @@ Screen3 As screen:
         Color: =RGBA(116, 116, 116, 1)
         FontWeight: =FontWeight.Bold
         Height: =37
-        OnSelect: |
+        OnSelect: |-
             =Set(Evaluation, false);
             Set(Laf, true);
             Set(HeadOfAf, false);
             Collect(tempTableAnswer, YAPAnswer);
             Clear(tempTableAnswer);
+            ClearCollect(
+                varGalleryItem,
+                GalleryFormLaf.AllItems
+            );
             ForAll(
                 varGalleryItem,
                 If(
@@ -41,7 +45,7 @@ Screen3 As screen:
                         {
                             IncludedLAF: varGalleryItem[@'Included in LAF'],
                             NewActivity: varGalleryItem[@'New activity'],
-                            InitialComments: varGalleryItem[@InitialComments],
+                            InitialComments: varGalleryItem[@InitialComments].Text,
                             IdQuestion: varGalleryItem[@ID],
                             UserEmail: User().Email
                         }
@@ -59,7 +63,7 @@ Screen3 As screen:
                             {
                                 IncludedLAF: varGalleryItem[@'Included in LAF'],
                                 NewActivity: varGalleryItem[@'New activity'],
-                                InitialComments: varGalleryItem[@InitialComments],
+                                InitialComments: varGalleryItem[@InitialComments].Text,
                                 IdQuestion: varGalleryItem[@ID],
                                 UserEmail: User().Email
                             }
@@ -73,7 +77,7 @@ Screen3 As screen:
                             {
                                 IncludedLAF: varGalleryItem[@'Included in LAF'],
                                 NewActivity: varGalleryItem[@'New activity'],
-                                InitialComments: varGalleryItem[@InitialComments],
+                                InitialComments: varGalleryItem[@InitialComments].Text,
                                 IdQuestion: varGalleryItem[@ID],
                                 UserEmail: User().Email
                             }
