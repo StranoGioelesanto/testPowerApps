@@ -343,7 +343,7 @@ Screen3 As screen:
                 RadiusTopRight: =20
                 Width: =178
                 X: =45
-                Y: =120
+                Y: =86
                 ZIndex: =8
 
             YesIncludedInLAF As checkbox:
