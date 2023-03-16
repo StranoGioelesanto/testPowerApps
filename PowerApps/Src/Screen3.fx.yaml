@@ -559,7 +559,7 @@ Screen3 As screen:
                 DisabledBorderColor: =RGBA(237, 237, 237, 1)
                 DisabledColor: =RGBA(116, 116, 116, 1)
                 DisabledFill: =RGBA(237, 237, 237, 1)
-                DisplayMode: =If(Now()>Date(Year(Now()), 6, 30), DisplayMode.Edit, DisplayMode.Disabled)
+                DisplayMode: =//If(Now()>Date(Year(Now()); 6; 30); DisplayMode.Edit; DisplayMode.Disabled)
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =30
                 HoverColor: =RGBA(237, 237, 237, 1)
@@ -571,7 +571,17 @@ Screen3 As screen:
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
                         ),
-                        {'Update31.12': 'StatusUpdate31.12'.SelectedText}
+                        {'Update31.12': {Value: "Completed"}}
+                       // {: {Value: 'StatusUpdate31.12'.Selected.Value}}
+                    )
+                OnSelect: |-
+                    =Patch(
+                        LookUp(
+                            tempTableAnswer,
+                            IdQuestion = ThisItem.ID
+                        ),
+                        {'Update31.12': {Value: "Completed"}}
+                       // {: {Value: 'StatusUpdate31.12'.Selected.Value}}
                     )
                 PressedColor: =RGBA(237, 237, 237, 1)
                 PressedFill: =RGBA(237, 237, 237, 1)
