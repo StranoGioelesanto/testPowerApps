@@ -571,7 +571,7 @@ Screen3 As screen:
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
                         ),
-                        {'Update31.12': {Value: 'StatusUpdate31.12'.Selected.Value}}
+                        {'Update31.12': {Value: 'StatusUpdate31.12'.Selected}}
                        // {: {Value: 'StatusUpdate31.12'.Selected.Value}}
                     )
                 OnSelect: =
