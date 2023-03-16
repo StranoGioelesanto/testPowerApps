@@ -281,19 +281,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery5.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryButtonLaf.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery5.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryButtonLaf.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery5"
+                "type": "Screen3.Container1.GalleryButtonLaf"
               }
             }
           ],
@@ -311,19 +311,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery5.TabIndex"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryButtonLaf.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery5.TabIndex",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryButtonLaf.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery5"
+                "type": "Screen3.Container1.GalleryButtonLaf"
               }
             }
           ],
@@ -341,19 +341,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3"
+                "type": "Screen3.Container1.GalleryFormLaf"
               }
             }
           ],
@@ -371,19 +371,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.TabIndex"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.TabIndex",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3"
+                "type": "Screen3.Container1.GalleryFormLaf"
               }
             }
           ],
@@ -401,19 +401,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'StatusUpdate30.06'.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'StatusUpdate30.06'.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'StatusUpdate30.06'.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'StatusUpdate30.06'.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3.'StatusUpdate30.06'"
+                "type": "Screen3.Container1.GalleryFormLaf.'StatusUpdate30.06'"
               }
             }
           ],
@@ -431,19 +431,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'StatusUpdate31.12'.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'StatusUpdate31.12'.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'StatusUpdate31.12'.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'StatusUpdate31.12'.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3.'StatusUpdate31.12'"
+                "type": "Screen3.Container1.GalleryFormLaf.'StatusUpdate31.12'"
               }
             }
           ],
@@ -461,19 +461,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.ActivityDescription.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.ActivityDescription.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.ActivityDescription.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.ActivityDescription.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3.ActivityDescription"
+                "type": "Screen3.Container1.GalleryFormLaf.ActivityDescription"
               }
             }
           ],
@@ -491,19 +491,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.InitialComments.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.InitialComments.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.InitialComments.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.InitialComments.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3.InitialComments"
+                "type": "Screen3.Container1.GalleryFormLaf.InitialComments"
               }
             }
           ],
@@ -521,19 +521,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'Update30.06'.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'Update30.06'.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'Update30.06'.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'Update30.06'.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3.'Update30.06'"
+                "type": "Screen3.Container1.GalleryFormLaf.'Update30.06'"
               }
             }
           ],
@@ -551,19 +551,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'Update31.12'.AccessibleLabel"
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'Update31.12'.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3.Container1.Gallery3.'Update31.12'.AccessibleLabel",
+                  "fullyQualifiedName": "Screen3.Container1.GalleryFormLaf.'Update31.12'.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Screen3",
-                "type": "Screen3.Container1.Gallery3.'Update31.12'"
+                "type": "Screen3.Container1.GalleryFormLaf.'Update31.12'"
               }
             }
           ],

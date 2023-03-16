@@ -30,7 +30,57 @@ Screen3 As screen:
             Set(Laf, true);
             Set(HeadOfAf, false);
             Collect(tempTableAnswer, YAPAnswer);
-            Clear(tempTableAnswer)
+            Clear(tempTableAnswer);
+            ForAll(
+                varGalleryItem,
+                If(
+                    IsEmpty(tempTableAnswer),
+                    Patch(
+                        tempTableAnswer,
+                        Defaults(tempTableAnswer),
+                        {
+                            IncludedLAF: varGalleryItem[@'Included in LAF'],
+                            NewActivity: varGalleryItem[@'New activity'],
+                            InitialComments: varGalleryItem[@InitialComments],
+                            IdQuestion: varGalleryItem[@ID],
+                            UserEmail: User().Email
+                        }
+                    ),
+                    If(
+                        IsBlank(
+                            LookUp(
+                                tempTableAnswer,
+                                IdQuestion = varGalleryItem[@ID]
+                            )
+                        ),
+                        Patch(
+                            tempTableAnswer,
+                            Defaults(tempTableAnswer),
+                            {
+                                IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                NewActivity: varGalleryItem[@'New activity'],
+                                InitialComments: varGalleryItem[@InitialComments],
+                                IdQuestion: varGalleryItem[@ID],
+                                UserEmail: User().Email
+                            }
+                        ),
+                        Patch(
+                            tempTableAnswer,
+                            LookUp(
+                                tempTableAnswer,
+                                IdQuestion = varGalleryItem[@ID]
+                            ),
+                            {
+                                IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                NewActivity: varGalleryItem[@'New activity'],
+                                InitialComments: varGalleryItem[@InitialComments],
+                                IdQuestion: varGalleryItem[@ID],
+                                UserEmail: User().Email
+                            }
+                        )
+                    )
+                )
+            )
         Text: ="LAF"
         Width: =45
         X: =176
@@ -88,7 +138,7 @@ Screen3 As screen:
             Y: =3
             ZIndex: =2
 
-        Gallery5 As gallery.galleryHorizontal:
+        GalleryButtonLaf As gallery.galleryHorizontal:
             DelayItemLoading: =true
             Height: =45
             Items: =Filter(SectionYAP, ThisRecord.TypeYAP.Value = "LAF")
@@ -110,7 +160,7 @@ Screen3 As screen:
                     =Select(Parent);
                     ClearCollect(
                         varGalleryItem,
-                        Gallery3.AllItems
+                        GalleryFormLaf.AllItems
                     );
                     ForAll(
                         varGalleryItem,
@@ -171,17 +221,17 @@ Screen3 As screen:
             Color: =RGBA(168, 0, 0, 1)
             FontWeight: =FontWeight.Semibold
             Height: =26
-            Text: =Gallery5.Selected.Description
+            Text: =GalleryButtonLaf.Selected.Description
             Width: =835
             X: =22
             Y: =99
             ZIndex: =4
 
-        Gallery3 As gallery.galleryVertical:
+        GalleryFormLaf As gallery.galleryVertical:
             Fill: =RGBA(219, 219, 219, 1)
             Height: =574
             Items: |-
-                =Filter(Question, Section.Value = Text(Gallery5.Selected.Section) && TypeYap.Value = Gallery5.Selected.TypeYAP.Value)
+                =Filter(Question, Section.Value = Text(GalleryButtonLaf.Selected.Section) && TypeYap.Value = GalleryButtonLaf.Selected.TypeYAP.Value)
                 //AddColumns(
                 //    ShowColumns(Filter(Question; IdSectionYAP.Value = Text(Gallery5.Selected.ID));
                 //        "ID"; "IdSectionYAP"; "ActivityDescription"; "IncludedinLAF"; "Initialcomments"; "Newactivity"

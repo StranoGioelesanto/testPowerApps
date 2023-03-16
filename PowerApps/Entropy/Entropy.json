@@ -12,8 +12,8 @@
     "Container1": 14,
     "Container2": 41,
     "Container3": 43,
-    "Gallery3": 20,
-    "Gallery5": 16,
+    "GalleryButtonLaf": 16,
+    "GalleryFormLaf": 20,
     "galleryTemplate3": 21,
     "galleryTemplate5": 17,
     "Icon1": 13,
@@ -48,7 +48,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "03/16/2023 11:42:55",
+  "HeaderLastSavedDateTimeUTC": "03/16/2023 11:57:56",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "5d761bc9-c52f-4697-932a-e34b450a77d1": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/532346fc4bdd4548a71239f1e1dad12b\""
@@ -93,8 +93,8 @@
     "Container1": {},
     "Container2": {},
     "Container3": {},
-    "Gallery3": {},
-    "Gallery5": {},
+    "GalleryButtonLaf": {},
+    "GalleryFormLaf": {},
     "galleryTemplate3": {},
     "galleryTemplate5": {},
     "Icon1": {},
@@ -139,8 +139,8 @@
     "Container1": 8,
     "Container2": 35,
     "Container3": 37,
-    "Gallery3": 14,
-    "Gallery5": 10,
+    "GalleryButtonLaf": 10,
+    "GalleryFormLaf": 14,
     "galleryTemplate3": 15,
     "galleryTemplate5": 11,
     "Icon1": 7,
@@ -179,7 +179,7 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.311802,
+    "AnalysisLoadTime": 0.2995212,
     "ControlCount": {
       "button": 5,
       "checkbox": 4,
@@ -193,7 +193,7 @@
       "screen": 3,
       "text": 4
     },
-    "DeserializationLoadTime": 0.8710003,
+    "DeserializationLoadTime": 0.7901807,
     "ErrorCount": 0
   },
   "WasLocalDatabaseReferencesEmpty": true
