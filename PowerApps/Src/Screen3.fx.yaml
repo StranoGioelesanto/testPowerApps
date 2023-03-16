@@ -93,6 +93,57 @@ Screen3 As screen:
             Height: =45
             Items: =Filter(SectionYAP, ThisRecord.TypeYAP.Value = "LAF")
             LoadingSpinner: =LoadingSpinner.Data
+            OnSelect: |-
+                =ForAll(
+                    varGalleryItem,
+                    If(
+                        IsEmpty(tempTableAnswer),
+                        Patch(
+                            tempTableAnswer,
+                            Defaults(tempTableAnswer),
+                            {
+                                IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                NewActivity: varGalleryItem[@'New activity'],
+                                InitialComments: varGalleryItem[@InitialComments],
+                                IdQuestion: varGalleryItem[@ID],
+                                UserEmail: User().Email
+                            }
+                        ),
+                        If(
+                            IsBlank(
+                                LookUp(
+                                    tempTableAnswer,
+                                    IdQuestion = varGalleryItem[@ID]
+                                )
+                            ),
+                            Patch(
+                                tempTableAnswer,
+                                Defaults(tempTableAnswer),
+                                {
+                                    IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                    NewActivity: varGalleryItem[@'New activity'],
+                                    InitialComments: varGalleryItem[@InitialComments],
+                                    IdQuestion: varGalleryItem[@ID],
+                                    UserEmail: User().Email
+                                }
+                            ),
+                            Patch(
+                                tempTableAnswer,
+                                LookUp(
+                                    tempTableAnswer,
+                                    IdQuestion = varGalleryItem[@ID]
+                                ),
+                                {
+                                    IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                    NewActivity: varGalleryItem[@'New activity'],
+                                    InitialComments: varGalleryItem[@InitialComments],
+                                    IdQuestion: varGalleryItem[@ID],
+                                    UserEmail: User().Email
+                                }
+                            )
+                        )
+                    )
+                )
             ShowScrollbar: =false
             TemplateSize: =138
             Width: =851
