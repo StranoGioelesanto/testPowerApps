@@ -147,11 +147,9 @@ Screen3 As screen:
                                 ),
                                 Patch(
                                     tempTableAnswer,
-                                    First(
-                                        Filter(
-                                            tempTableAnswer,
-                                            IdQuestion = ThisRecord.ID
-                                        )
+                                    LookUp(
+                                        tempTableAnswer,
+                                        IdQuestion = ThisRecord.ID
                                     ),
                                     {
                                         IncludedLAF: ThisRecord.'Included in LAF',
