@@ -537,7 +537,7 @@ Screen3 As screen:
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
                         ),
-                        {'Update30.06': 'StatusUpdate30.06'.SelectedText}
+                        {'Update30.06': 'StatusUpdate30.06'.Selected}
                     )
                 PressedColor: =RGBA(237, 237, 237, 1)
                 PressedFill: =RGBA(237, 237, 237, 1)
@@ -571,18 +571,10 @@ Screen3 As screen:
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
                         ),
-                        {'Update31.12': {Value: "Completed"}}
+                        {'Update31.12': {Value: 'StatusUpdate31.12'.Selected.Value}}
                        // {: {Value: 'StatusUpdate31.12'.Selected.Value}}
                     )
-                OnSelect: |-
-                    =Patch(
-                        LookUp(
-                            tempTableAnswer,
-                            IdQuestion = ThisItem.ID
-                        ),
-                        {'Update31.12': {Value: "Completed"}}
-                       // {: {Value: 'StatusUpdate31.12'.Selected.Value}}
-                    )
+                OnSelect: =
                 PressedColor: =RGBA(237, 237, 237, 1)
                 PressedFill: =RGBA(237, 237, 237, 1)
                 SelectionFill: =RGBA(237, 237, 237, 1)
