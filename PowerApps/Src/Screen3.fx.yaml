@@ -335,6 +335,7 @@ Screen3 As screen:
                 Default: =ThisItem.ActivityDescription
                 Fill: =RGBA(237, 237, 237, 1)
                 Height: =130
+                Mode: =TextMode.MultiLine
                 OnSelect: =Select(Parent)
                 RadiusBottomLeft: =20
                 RadiusBottomRight: =20
@@ -571,7 +572,7 @@ Screen3 As screen:
                             tempTableAnswer,
                             IdQuestion = ThisItem.ID
                         ),
-                        {'SecondUpdate': {Value: 'StatusUpdate31.12'.Selected.Value}}
+                        {SecondUpdate: {Value: 'StatusUpdate31.12'.Selected.Value}}
                        // {: {Value: 'StatusUpdate31.12'.Selected.Value}}
                     )
                 OnSelect: =
