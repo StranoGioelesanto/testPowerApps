@@ -128,7 +128,7 @@ Screen3 As screen:
                                 }
                             ),
                             If(
-                                IsEmpty(
+                                IsBlank(
                                     LookUp(
                                         tempTableAnswer,
                                         IdQuestion = ThisRecord.ID
