@@ -120,10 +120,10 @@ Screen3 As screen:
                                 tempTableAnswer,
                                 Defaults(tempTableAnswer),
                                 {
-                                    IncludedLAF: ThisRecord.'Included in LAF',
-                                    NewActivity: ThisRecord.'New activity',
-                                    InitialComments: ThisRecord.InitialComments,
-                                    IdQuestion: ThisRecord.ID,
+                                    IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                    NewActivity: varGalleryItem[@'New activity'],
+                                    InitialComments: varGalleryItem[@InitialComments],
+                                    IdQuestion: varGalleryItem[@ID],
                                     UserEmail: User().Email
                                 }
                             ),
@@ -131,17 +131,17 @@ Screen3 As screen:
                                 IsBlank(
                                     LookUp(
                                         tempTableAnswer,
-                                        IdQuestion = ThisRecord.ID
+                                        IdQuestion = varGalleryItem[@ID]
                                     )
                                 ),
                                 Patch(
                                     tempTableAnswer,
                                     Defaults(tempTableAnswer),
                                     {
-                                        IncludedLAF: ThisRecord.'Included in LAF',
-                                        NewActivity: ThisRecord.'New activity',
-                                        InitialComments: ThisRecord.InitialComments,
-                                        IdQuestion: ThisRecord.ID,
+                                        IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                        NewActivity: varGalleryItem[@'New activity'],
+                                        InitialComments: varGalleryItem[@InitialComments],
+                                        IdQuestion: varGalleryItem[@ID],
                                         UserEmail: User().Email
                                     }
                                 ),
@@ -149,13 +149,13 @@ Screen3 As screen:
                                     tempTableAnswer,
                                     LookUp(
                                         tempTableAnswer,
-                                        IdQuestion = ThisRecord.ID
+                                        IdQuestion = varGalleryItem[@ID]
                                     ),
                                     {
-                                        IncludedLAF: ThisRecord.'Included in LAF',
-                                        NewActivity: ThisRecord.'New activity',
-                                        InitialComments: ThisRecord.InitialComments,
-                                        IdQuestion: ThisRecord.ID,
+                                        IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                        NewActivity: varGalleryItem[@'New activity'],
+                                        InitialComments: varGalleryItem[@InitialComments],
+                                        IdQuestion: varGalleryItem[@ID],
                                         UserEmail: User().Email
                                     }
                                 )
