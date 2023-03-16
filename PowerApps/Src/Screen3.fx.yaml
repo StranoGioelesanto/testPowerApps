@@ -30,7 +30,57 @@ Screen3 As screen:
             Set(Laf, true);
             Set(HeadOfAf, false);
             Collect(tempTableAnswer, YAPAnswer);
-            Clear(tempTableAnswer)
+            Clear(tempTableAnswer);
+            ForAll(
+                varGalleryItem,
+                If(
+                    IsEmpty(tempTableAnswer),
+                    Patch(
+                        tempTableAnswer,
+                        Defaults(tempTableAnswer),
+                        {
+                            IncludedLAF: varGalleryItem[@'Included in LAF'],
+                            NewActivity: varGalleryItem[@'New activity'],
+                            InitialComments: varGalleryItem[@InitialComments],
+                            IdQuestion: varGalleryItem[@ID],
+                            UserEmail: User().Email
+                        }
+                    ),
+                    If(
+                        IsBlank(
+                            LookUp(
+                                tempTableAnswer,
+                                IdQuestion = varGalleryItem[@ID]
+                            )
+                        ),
+                        Patch(
+                            tempTableAnswer,
+                            Defaults(tempTableAnswer),
+                            {
+                                IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                NewActivity: varGalleryItem[@'New activity'],
+                                InitialComments: varGalleryItem[@InitialComments],
+                                IdQuestion: varGalleryItem[@ID],
+                                UserEmail: User().Email
+                            }
+                        ),
+                        Patch(
+                            tempTableAnswer,
+                            LookUp(
+                                tempTableAnswer,
+                                IdQuestion = varGalleryItem[@ID]
+                            ),
+                            {
+                                IncludedLAF: varGalleryItem[@'Included in LAF'],
+                                NewActivity: varGalleryItem[@'New activity'],
+                                InitialComments: varGalleryItem[@InitialComments],
+                                IdQuestion: varGalleryItem[@ID],
+                                UserEmail: User().Email
+                            }
+                        )
+                    )
+                )
+            )
         Text: ="LAF"
         Width: =45
         X: =176
